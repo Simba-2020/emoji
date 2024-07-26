@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Choice Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Question Section -->
+        <div class="question-section">
+            <div class="question-text">I feel .......</div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question" id="question1">
+            <div class="image-container">
+                <img src="images/image1.jpg" alt="Image 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="true">Happy<span class="tick"></span></button>
+                <button id="choice2" class="choice" data-correct="false">Sad</button>
+                <button id="choice3" class="choice" data-correct="false">Angry</button>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" id="question2">
+            <div class="image-container">
+                <img src="images/image2.jpg" alt="Image 2">
+            </div>
+            <div class="choices">
+                <button id="choice4" class="choice" data-correct="false">Tired</button>
+                <button id="choice5" class="choice" data-correct="true">Energetic<span class="tick"></span></button>
+                <button id="choice6" class="choice" data-correct="false">Bored</button>
+            </div>
+        </div>
+
+        <!-- Add more questions as needed -->
+
+        <!-- Result Section -->
+        <div class="result" id="result">
+            <h1>Quiz Completed!</h1>
+            <p>Thank you for completing the quiz.</p>
+        </div>
+    </div>
+    
+    <!-- Audio elements -->
+    <audio id="correctSound" src="sounds/correct.mp3"></audio>
+    <audio id="incorrectSound" src="sounds/incorrect.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

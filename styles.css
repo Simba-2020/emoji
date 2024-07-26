@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.question-text {
+    margin-bottom: 10px;
+    color: #333;
+    /* Font size will be adjusted dynamically */
+    font-size: 5vw; /* Adjust to a relative size */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.question {
+    display: none;
+}
+
+.question.active {
+    display: block;
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.choice {
+    padding: 15px 20px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.choice:hover, .choice:active {
+    background-color: #ccc;
+    transform: scale(1.05);
+}
+
+.choice.correct {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.choice.incorrect {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.choice .tick {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('images/tick.svg'); /* SVG for green tick mark */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.choice.correct .tick {
+    display: inline-block;
+}
+
+.result {
+    display: none;
+    text-align: center;
+}
