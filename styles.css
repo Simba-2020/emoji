@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* Prevent scrolling issues on small screens */
 }
 
 .quiz-container {
@@ -17,17 +18,20 @@ body {
 }
 
 .question-section {
-    text-align: center;
+    text-align: left; /* changed from centre to left*/
     margin-bottom: 20px;
 }
 
 .question-text {
-    font-size: 6vw; /* Responsive font size */
-    color: #333;
+    font-size: 50px; /* Fixed font size for the question text -- changed for 12px to 20px*/
+    color: #333; /* 333 */
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
     color: white;
     padding: 10px;
     border-radius: 5px;
+    width: 80%; /* Ensure it fits within container */
+    margin: 0 auto; /* Center the text */
+    box-sizing: border-box;
 }
 
 .question {
@@ -59,14 +63,14 @@ body {
 
 .choice {
     width: 80%;
-    max-width: 300px; /* Ensure buttons don’t get too wide */
-    padding: 15px;
+    max-width: 650px; /* Ensure buttons don’t get too wide */
+    padding: 10px;
+    font-size: 30px; /* Fixed font size for the answer buttons -- changed from 12px to 20px */
     background-color: #ddd;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    font-size: 5vw; /* Responsive font size */
     position: relative;
     transition: background-color 0.3s, transform 0.2s;
 }
@@ -84,23 +88,6 @@ body {
 .choice.incorrect {
     background-color: #f44336; /* Red */
     color: white;
-}
-
-.choice .tick {
-    display: none;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    background-image: url('images/tick.svg'); /* SVG for green tick mark */
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.choice.correct .tick {
-    display: inline-block;
 }
 
 .result {

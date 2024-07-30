@@ -5,41 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Choice Quiz</title>
     <link rel="stylesheet" href="styles.css">
+	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 </head>
 <body>
     <div class="quiz-container">
-        <!-- Question Section -->
         <div class="question-section">
             <div class="question-text">I feel .......</div>
         </div>
 
-        <!-- Question 1 -->
         <div class="question active" id="question1">
             <div class="image-container">
-                <img src="images/image1.jpg" alt="Image 1">
+                <img src="images/happy1.jpg" alt="Happy 1">
             </div>
             <div class="choices">
-                <button id="choice1" class="choice" data-correct="true">Happy<span class="tick"></span></button>
+                <button id="choice1" class="choice" data-correct="true">Happy</button>
                 <button id="choice2" class="choice" data-correct="false">Sad</button>
                 <button id="choice3" class="choice" data-correct="false">Angry</button>
             </div>
         </div>
 
-        <!-- Question 2 -->
         <div class="question" id="question2">
             <div class="image-container">
-                <img src="images/image2.jpg" alt="Image 2">
+                <img src="images/sad1.jpg" alt="Sad 1">
             </div>
             <div class="choices">
-                <button id="choice4" class="choice" data-correct="false">Tired</button>
-                <button id="choice5" class="choice" data-correct="true">Energetic<span class="tick"></span></button>
-                <button id="choice6" class="choice" data-correct="false">Bored</button>
+                <button id="choice1" class="choice" data-correct="false">Tired</button>
+                <button id="choice2" class="choice" data-correct="true">Sad</button>
+                <button id="choice3" class="choice" data-correct="false">Bored</button>
             </div>
         </div>
 
-        <!-- Add more questions as needed -->
+        <div class="question" id="question3">
+            <div class="image-container">
+                <img src="images/angry1.jpg" alt="Angry 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="false">Tired</button>
+                <button id="choice2" class="choice" data-correct="false">Energetic</button>
+                <button id="choice3" class="choice" data-correct="true">Angry</button>
+            </div>
+        </div>
 
-        <!-- Result Section -->
+        <div class="question" id="question4">
+            <div class="image-container">
+                <img src="images/excited1.jpg" alt="Excited 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="false">Tired</button>
+                <button id="choice2" class="choice" data-correct="false">Energetic</button>
+                <button id="choice3" class="choice" data-correct="true">Excited</button>
+            </div>
+        </div>
+
+        <div class="question" id="question5">
+            <div class="image-container">
+                <img src="images/frustrated1.jpg" alt="Frustrated 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="false">Tired</button>
+                <button id="choice2" class="choice" data-correct="true">Frustrated</button>
+                <button id="choice3" class="choice" data-correct="false">Angry</button>
+            </div>
+        </div>
+
+        <div class="question" id="question6">
+            <div class="image-container">
+                <img src="images/sleepy1.jpg" alt="Sleepy 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="true">Sleepy</button>
+                <button id="choice2" class="choice" data-correct="false">Happy</button>
+                <button id="choice3" class="choice" data-correct="false">Angry</button>
+            </div>
+        </div>
+
+        <div class="question" id="question7">
+            <div class="image-container">
+                <img src="images/sick1.jpg" alt="Sick 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="false">Tired</button>
+                <button id="choice2" class="choice" data-correct="false">Surprised</button>
+                <button id="choice3" class="choice" data-correct="true">Sick</button>
+            </div>
+        </div>
+
+        <div class="question" id="question8">
+            <div class="image-container">
+                <img src="images/shy1.jpg" alt="Shy 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="true">Shy</button>
+                <button id="choice2" class="choice" data-correct="false">Worried</button>
+                <button id="choice3" class="choice" data-correct="false">Angry</button>
+            </div>
+        </div>
+
+        <div class="question" id="question9">
+            <div class="image-container">
+                <img src="images/nervous1.jpg" alt="Nervous 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="false">Tired</button>
+                <button id="choice2" class="choice" data-correct="true">Nervous</button>
+                <button id="choice3" class="choice" data-correct="false">Sad</button>
+            </div>
+        </div>
+
+        <div class="question" id="question10">
+            <div class="image-container">
+                <img src="images/hot1.jpg" alt="Hot 1">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="false">Cold</button>
+                <button id="choice2" class="choice" data-correct="true">Hot</button>
+                <button id="choice3" class="choice" data-correct="false">Sick</button>
+            </div>
+        </div>
+
+        <div class="question" id="question11">
+            <div class="image-container">
+                <img src="images/happy2.jpg" alt="Happy 2">
+            </div>
+            <div class="choices">
+                <button id="choice1" class="choice" data-correct="true">Happy</button>
+                <button id="choice2" class="choice" data-correct="false">Sad</button>
+                <button id="choice3" class="choice" data-correct="false">Angry</button>
+            </div>
+        </div>
+
         <div class="result" id="result">
             <h1>Quiz Completed!</h1>
             <p>Thank you for completing the quiz.</p>
@@ -47,8 +142,8 @@
     </div>
     
     <!-- Audio elements -->
-    <audio id="correctSound" src="sounds/correct.mp3"></audio>
-    <audio id="incorrectSound" src="sounds/incorrect.mp3"></audio>
+    <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="incorrectSound" src="sounds/incorrect.mp3" preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>

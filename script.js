@@ -1,25 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
     const choices = document.querySelectorAll('.choice');
-    const questions = document.querySelectorAll('.question');
+    const questions = Array.from(document.querySelectorAll('.question'));
     const result = document.getElementById('result');
     const correctSound = document.getElementById('correctSound');
     const incorrectSound = document.getElementById('incorrectSound');
     let currentQuestionIndex = 0;
     let answered = false;
 
+    // Shuffle function
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+        return array;
+    }
+
+    // Shuffle the questions array
+    const shuffledQuestions = shuffleArray(questions);
+
     function showQuestion(index) {
-        questions.forEach((q, i) => {
+        shuffledQuestions.forEach((q, i) => {
             q.classList.toggle('active', i === index);
         });
     }
 
     function nextQuestion() {
         currentQuestionIndex++;
-        if (currentQuestionIndex >= questions.length) {
+        if (currentQuestionIndex >= shuffledQuestions.length) {
             currentQuestionIndex = 0; // Loop back to the first question
         }
         answered = false; // Reset answer flag
         showQuestion(currentQuestionIndex);
+    }
+
+    function playSound(sound) {
+        sound.currentTime = 0; // Reset playback position
+        sound.play(); // Play sound
+    }
+
+    function triggerConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.5 } // Adjust position as needed
+        });
     }
 
     function handleChoiceClick(e) {
@@ -38,12 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add feedback
         if (isCorrect) {
             choice.classList.add('correct');
-            correctSound.play();
+            playSound(correctSound);
+			/*
+            triggerConfetti(); // Trigger confetti effect
+			*/
             answered = true;
             setTimeout(nextQuestion, 1000); // Move to next question after 1 second
         } else {
             choice.classList.add('incorrect');
-            incorrectSound.play();
+            playSound(incorrectSound);
             setTimeout(() => {
                 choice.classList.remove('incorrect'); // Reset feedback after 1 second
             }, 1000);
